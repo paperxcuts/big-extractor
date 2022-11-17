@@ -1,12 +1,11 @@
 """
-from what i can tell the corresponding magic belongs to the these files
 BIG5 = CLASH.big
 BIG4 = VIDEO.big
 BIGF = other
 
 BIG4 and BIGF are the same afaik
 
-// all values so far have been big endian except for the file count at the start of the file(0x4)
+// all values ive seen have been big endian except for the file count at the start of the file (0x4)
 0x0: char sig[3];    // b'BIG'
 0x3: char type;      // 5, 4 or F (ive seen so far)
 0x4: u32 file_size;  // size of the .big file (little endian)
@@ -28,7 +27,7 @@ def be_uint32(b):
 def le_uint32(b):
     return struct.unpack('<I', b)[0]
 
-# simple class used for the file meta data in both versions
+# simple class used to store the file meta data in both versions
 class FEntry:
     def __init__(self, offs, size, path):
         self.offs = offs
@@ -42,13 +41,13 @@ class FEntry:
 
 # get null terminated string from file
 def get_string(fd):
-    # TODO: prevent from reading past file if no null terminator is found
+    # TODO: prevent/handle reading past file if no null terminator is found
     name = ""
     char = fd.read(1)
     while char != b'\0':
         name += char.decode('ascii')
         char = fd.read(1)
-    return name    
+    return name
 
 # display file names as we are extracting
 def outlog(data):
@@ -62,7 +61,7 @@ def get_file_entry(fd):
 def write_file(path, data):
     dirs, filename = path.rsplit('/', 1)
     
-    # make directories if they dont exist
+    # make directories if they dont already exist
     try:
         os.makedirs(dirs)
     except IOError:
@@ -102,7 +101,7 @@ def extract_BIGF(file, file_count):
 
 if __name__ == '__main__':
 
-    # program expects filename given as a command line argument
+    # program expects filepath given as a command line argument
     if len(sys.argv) != 2:
         print('invalid number of arguments')
         exit(1)
