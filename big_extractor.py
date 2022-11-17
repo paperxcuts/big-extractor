@@ -100,7 +100,6 @@ def extract_BIGF(file, file_count):
 
 
 if __name__ == '__main__':
-
     # program expects filepath given as a command line argument
     if len(sys.argv) != 2:
         print('invalid number of arguments')
