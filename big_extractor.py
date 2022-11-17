@@ -1,8 +1,8 @@
 """
 archive(files within file) extractor for marvel nemesis rise of the imperfects(ps2 2005)
 
-BIG5 = CLASH.big
-BIG4 = VIDEO.big
+BIG5 = CLASH.BIG
+BIG4 = VIDEO.BIG
 BIGF = other
 
 BIG4 and BIGF are the same afaik
@@ -129,13 +129,13 @@ if __name__ == '__main__':
         entries = None
 
         if header == b'BIG5':
-            entries = extract_BIG5(file, file_size)
+            entries = extract_BIG5(file, file_count)
         elif header == b'BIGF' or header == b'BIG4':
-            entries = extract_BIGF(file, file_size)
+            entries = extract_BIGF(file, file_count)
         else:
             print('Not a \'BIG\' file!')
             exit(1)
-        
+
         # iterate over the entries we have gathered and process the files
         for entry in entries:
             file.seek(entry.offs)
