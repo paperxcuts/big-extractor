@@ -128,9 +128,9 @@ if __name__ == '__main__':
         entries = None
 
         if header == b'BIG5':
-            entries = extract_BIG5(file)
+            entries = extract_BIG5(file, file_size)
         elif header == b'BIGF' or header == b'BIG4':
-            entries = extract_BIGF(file)
+            entries = extract_BIGF(file, file_size)
         else:
             print('Not a \'BIG\' file!')
             exit(1)
