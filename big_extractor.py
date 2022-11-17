@@ -114,7 +114,7 @@ if __name__ == '__main__':
         print('File does not exist...')
         exit(1)
 
-    bdir = Path(filepath).stem if EXPORT_TO_DIR else ""
+    bdir = f'{Path(filepath).stem}/' if EXPORT_TO_DIR else ""
 
     with open(filepath, 'rb') as file:
         # read file header b'BIG'*
