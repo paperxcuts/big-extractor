@@ -75,8 +75,7 @@ def write_file(path, data):
     # return the filename so we can display it as output
     return filename
 
-# return array of FEntry so we have information for each archived file (path/name, offset, size)
-# return array of metadata so we can process it later
+# extract and return array of metadata to process later
 def extract_BIG5(file, file_count):
     file.seek(3, os.SEEK_CUR)
 
@@ -89,7 +88,7 @@ def extract_BIG5(file, file_count):
 
     return entries
 
-# extract the file metadata
+# extract and return array of metadata to process later
 def extract_BIGF(file, file_count):
     file.seek(4, os.SEEK_CUR)
 
@@ -128,7 +127,7 @@ if __name__ == '__main__':
         file_count = be_uint32(file.read(4))
 
         entries = None
-        
+
         if header == b'BIG5':
             entries = extract_BIG5(file)
         elif header == b'BIGF' or header == b'BIG4':
