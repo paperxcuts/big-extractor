@@ -1,5 +1,5 @@
 """
-archive(files within file) extractor for marvel nemesis rise of the imperfects(ps2 2005)
+.big/.BIG archive(files within file) extractor for marvel nemesis rise of the imperfects(ps2 2005)
 
 BIG5 = CLASH.BIG
 BIG4 = VIDEO.BIG
