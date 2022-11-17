@@ -76,6 +76,7 @@ def write_file(path, data):
     return filename
 
 # return array of FEntry so we have information for each archived file (path/name, offset, size)
+# return array of metadata so we can process it later
 def extract_BIG5(file):
     # get .big size and number of files inside
     file_size = le_uint32(file.read(4))
