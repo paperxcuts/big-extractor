@@ -108,7 +108,7 @@ if __name__ == '__main__':
         print('invalid number of arguments')
         exit(1)
 
-    # get what should be the filename
+    # get filepath argument entered by user
     filepath = sys.argv[1]
 
     if not os.path.exists(filepath):
@@ -127,7 +127,6 @@ if __name__ == '__main__':
         # get number of files inside
         file_count = be_uint32(file.read(4))
 
-
         entries = None
         
         if header == b'BIG5':
@@ -137,7 +136,7 @@ if __name__ == '__main__':
         else:
             print('Not a \'BIG\' file!')
             exit(1)
-
+        
         # iterate over the entries we have gathered and process the files
         for entry in entries:
             file.seek(entry.offs)
