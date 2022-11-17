@@ -57,7 +57,7 @@ def outlog(data):
 def get_file_entry(fd):
     return FEntry(be_uint32(fd.read(4)), be_uint32(fd.read(4)), get_string(fd))
 
-
+# create paths and write file
 def write_file(path, data):
     dirs, filename = path.rsplit('/', 1)
     
