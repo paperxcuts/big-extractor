@@ -7,7 +7,7 @@ BIGF = other
 
 BIG4 and BIGF are the same afaik
 
-// all values ive seen have been big endian except for the file count at the start of the file (0x4)
+// all values ive seen have been big endian except for the .big file size at the start of the file (0x4)
 0x0: char sig[3];    // b'BIG'
 0x3: char type;      // 5, 4 or F (ive seen so far)
 0x4: u32 file_size;  // size of the .big file (little endian)
